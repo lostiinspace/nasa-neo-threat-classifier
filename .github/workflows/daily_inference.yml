@@ -1,0 +1,37 @@
+name: Daily NEO Threat Inference
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  score-todays-neos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch today's close approaches & run model
+        env:
+          NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
+        run: python src/predict_daily.py
+
+      - name: Commit updated predictions & README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ models/ metrics_history.json README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: daily NEO inference update"
+          git push
