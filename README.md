@@ -3,18 +3,17 @@
 An end-to-end machine learning pipeline ingesting live orbital and physical telemetry from **NASA's NeoWs API** to classify Near-Earth Objects into four risk tiers. Automated via **GitHub Actions** for daily live flyby scoring and weekly model retraining.
 
 ### 📊 Latest Model Snapshot
-* **Last Daily Scan (UTC):** `2026-11-27`
+* **Last Daily Scan (UTC):** `2026-11-28`
 * **Training Catalog Size:** `1000` unique NEOs
 * **Validation Macro F1:** `0.9725`
 * **High-Threat (PHA/Sentry) Recall:** `1.0`
 
-### ☄️ Today's Close-Approach Predictions (2026-11-27)
+### ☄️ Today's Close-Approach Predictions (2026-11-28)
 | Asteroid | Est. Diameter (km) | Min Miss Distance (km) | Predicted Threat Tier | Actual NASA PHA |
 | :--- | :---: | :---: | :--- | :---: |
-| 706765 (2010 TK7) | 0.300 | 40,546,290 | **High (Flagged PHA)** | False |
-| (2010 TK7) | 0.300 | 40,546,291 | **High (Flagged PHA)** | False |
-| (2018 TX4) | 0.751 | 45,782,233 | **High (Flagged PHA)** | False |
-| (2017 WW12) | 0.358 | 63,684,838 | **High (Flagged PHA)** | False |
-| (2010 RJ43) | 0.078 | 20,445,653 | **Low (Routine)** | False |
-| (2017 KA5) | 0.033 | 45,320,479 | **Low (Routine)** | False |
-| (2007 CM26) | 0.041 | 68,759,730 | **Low (Routine)** | False |
+| 217628 Lugh (1990 HA) | 1.984 | 10,586,568 | **High (Flagged PHA)** | True |
+| (2011 UE305) | 0.244 | 22,973,338 | **High (Flagged PHA)** | True |
+| (2005 JQ81) | 0.409 | 33,956,055 | **High (Flagged PHA)** | False |
+| (2015 FU284) | 0.009 | 47,173,474 | **Low (Routine)** | False |
+| (2016 CN248) | 0.015 | 66,246,803 | **Low (Routine)** | False |
+| (2008 WK60) | 0.142 | 72,250,447 | **Low (Routine)** | False |
